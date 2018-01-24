@@ -1,0 +1,35 @@
+<!--  hypertext markup language -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+      let password = "";
+      let attempts = 3;
+
+      do {
+        console.log("Hello from JavaScript!");
+        //document.write("Hello from JavaScript!");
+
+        //window.alert("Hello from JavaScript");
+        // window.confirm, it return a boolean based on what button was pressed
+        //let answer = window.confirm("Are you rested from the holidays?");
+        //document.write(answer);
+        password = window.prompt("Please enter the password: ");
+        attempts--;
+
+        // document object model == DOM
+
+      } while (password != '$ummer' && attempts > 0);
+
+      // || or
+      // && and
+
+      // <> exclusive or
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
