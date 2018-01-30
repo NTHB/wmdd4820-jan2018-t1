@@ -12,10 +12,6 @@ const team = {
         {id: 4, name: 'Param', status: 'unassigned'},
         {id: 5, name: 'Gean', status: 'unassigned'},
         {id: 6, name: 'Mirlad', status: 'unassigned'},
-        {id: 7, name: 'Kanal', status: 'unassigned'},
-        {id: 8, name: 'Goddy', status: 'unassigned'},
-        {id: 9, name: 'Julia', status: 'unassigned'},
-        {id: 10, name: 'Leo', status: 'unassigned'},
     ],
     teams: [
         {id: 1, team: 'Team 1', members: []},
