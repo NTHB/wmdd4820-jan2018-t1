@@ -1,0 +1,12 @@
+* Chess sprites
+
+https://joszs.itch.io/chess-pack
+
+*Emulogic Font
+"Emulogic" - Truetype Font - www.freakyfonts.de
+
+* Chenx midi player js class
+
+
+*ngDialog
+

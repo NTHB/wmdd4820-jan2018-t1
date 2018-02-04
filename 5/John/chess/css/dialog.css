@@ -1,0 +1,10 @@
+.zindex {
+    z-index: 99000 !important;
+}
+
+
+.custom-width {
+
+    width:100vw;
+    height:100vh;
+}

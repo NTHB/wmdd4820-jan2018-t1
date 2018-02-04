@@ -1,0 +1,62 @@
+.board{
+
+    margin:0 auto;
+    margin-left:20vw;
+    margin-right:20vw;
+    margin-top:5vh;
+    /*background-color:gray;*/
+    max-width:78vw;
+    height: 90vh;
+
+}
+
+
+.board-row {
+     width:101%;
+    height:11.3vh;
+    float:left;
+
+}
+
+.board-row-square {
+    width: 12.4%;
+    height:inherit;
+    max-height:inherit;
+    float:left;
+
+
+
+}
+
+.dark-square {
+    background-color: #a37754;
+    border: .2px solid #4c3614;
+    box-sizing: border-box;
+
+}
+
+.white-square {
+    background-color: #f3ebd7;
+    border: .2px solid #4c3614 ;
+
+    box-sizing: border-box;
+}
+
+
+
+.square-highlight {
+  background-color: rgba(255,173,45,.8);
+
+}
+
+.square-highlight-enemy {
+    background-color: rgba(198,43,43,.8);
+
+}
+
+.debug-info {
+    color:black;
+    font-size:.7rem;
+    float:left;
+    display: inline-block;
+}

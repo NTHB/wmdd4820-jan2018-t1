@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" ng-app="chessJs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ChessJS - by John</title>
+
+    <!--AngularJS-->
+    <script src="angular.min.js"></script>
+
+    <!--Module-->
+    <script src="angular/modules/app.js"></script>
+
+    <!--FONTS-->
+    <link rel="stylesheet" href="fonts/emulogic/stylesheet.css">
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/clearfix.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/turn.css">
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/pieces.css">
+    <link rel="stylesheet" href="css/dialog.css">
+
+
+    <!--NG-DIALOG-->
+    <link rel="stylesheet" href="build/ngDialog.css">
+    <link rel="stylesheet" href="build/ngDialog-theme-default.css">
+    <script src="build/ngDialog.min.js"></script>
+
+
+    <!--Landscape orientation on manifest-->
+    <link rel="manifest" href="manifest.json">
+
+</head>
+<body ng-cloak="" ng-controller="dragDropCtrl">
+
+<div class="board" ng-controller="boardCtrl">
+
+    <!--TURN SHOW-->
+    <div class="turn-wrapper">
+        <p><strong>Turn</strong></p>
+        <p>{{turn}}</p>
+
+    </div>
+
+    <!--WRONG ORIENTATION MESSAGE-->
+
+    <script type="text/ng-template" id="firstDialogId">
+       <div class="zindex">
+           <div class="ngdialog-message">
+               <h3>Turn your Phone to <b>Landscape</b></h3>
+               <p ng-show="theme">Please, to ajust correctly the chess field, turn your phone to landscape</p>
+
+           </div>
+           <div class="ngdialog-buttons">
+               <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('Cancel')">Ok</button>
+
+           </div>
+       </div>
+    </script>
+
+    <div ng-controller="pieceCtrl">
+
+        <!--ng-class="{'dark-square' : square.className === 'dark-square', 'white-square':square.className === 'white-square', 'square-highlight': square.droppable}"-->
+
+        <div class="board-row cf" ng-repeat="rows in board.rows">
+        <div class="board-row-square"
+             ng-class="{'dark-square' : square.className === 'dark-square',
+              'white-square':square.className === 'white-square',
+               'square-highlight': square.droppable,
+               'square-highlight-enemy' : square.enemyPiece}"
+             ng-style="checkBlood(square)"
+             ng-repeat="square in rows.squares"   data-drop="square.droppable"
+             data-jqyoui-options="{zIndex:-99999999999}"
+             jqyoui-droppable="{onDrop: 'onDrop(square)'}"
+
+        >
+
+            <!--Show a piece, if theres any in that place-->
+
+            <div ng-if="square.piece" class="piece-container"  data-drag="true" data-jqyoui-options="{revert: 'invalid', revertDuration:100}"
+                 jqyoui-draggable="{animate:true, onDrag: 'onDrag(square.piece)', onStart: 'onDragStart(square.piece)', onStop: 'onDragStop(square.piece)'}"
+                 ng-model="square.piece">
+                <img  ng-src="{{square.piece.imgUrl}}{{square.piece.team}}.png" alt="{{square.piece.name}}" class="piece "
+
+                >
+
+            </div>
+
+
+            <!--Debug info-->
+                <!--<span class="debug-info">-->
+                   <!--pieceId: {{square.piece.id}}/x:{{square.x}}/y:{{square.y}}/Drop:  {{square.droppable}}</span>-->
+
+        </div>
+    </div>
+
+    </div>
+
+
+</div>
+
+<!--Angular Drag and Drop-->
+<script src="bower/jquery/dist/jquery.min.js"></script>
+<script src="bower/jquery-ui/jquery-ui.min.js"></script>
+<script src="bower/touchpunch/jquery-ui-touch-punch.js"></script>
+<script src="bower/angular-dragdrop/src/angular-dragdrop.min.js"></script>
+
+<script>$('img').draggable();</script>
+
+
+<!--Services-->
+<script src="angular/services/pieceMovementService.js"></script>
+<script src="angular/services/bkgMusicService.js"></script>
+
+
+
+<!--Controllers-->
+<script src="angular/controllers/boardCtrl.js"></script>
+<script src="angular/controllers/ddCtrl.js"></script>
+<script src="angular/controllers/pieceCtrl.js"></script>
+
+
+</body>
+</html>
