@@ -7,10 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TodoList</title>
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <!--BOOTSTRAP-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!--jQUERY-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -20,15 +22,16 @@
     <link rel="stylesheet" href="styles/styles.css">
 
     <!--jQUERY UI-->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
 
 
     <style>
         .hint {
-            font-size:.7rem;
-            color:gray;
-            padding-top:.5rem;
-            width:100%;
+            font-size: .7rem;
+            color: gray;
+            padding-top: .5rem;
+            width: 100%;
             text-align: center;
         }
     </style>
@@ -42,24 +45,25 @@
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#">Todo List</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <!--<li class="nav-item active">-->
-                    <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+                <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
                 <!--</li>-->
                 <!--<li class="nav-item">-->
-                    <!--<a class="nav-link" href="#">Link</a>-->
+                <!--<a class="nav-link" href="#">Link</a>-->
                 <!--</li>-->
                 <!--<li class="nav-item">-->
-                    <!--<a class="nav-link disabled" href="#">Disabled</a>-->
+                <!--<a class="nav-link disabled" href="#">Disabled</a>-->
                 <!--</li>-->
             </ul>
             <!--<form class="form-inline mt-2 mt-md-0">-->
-                <!--<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
-                <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+            <!--<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+            <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
             <!--</form>-->
         </div>
     </nav>
@@ -76,21 +80,20 @@
 
             <form class="form-inline" id="myForm">
                 <label for="input-add-task" class="task-name-label">Task Name</label>
-                <input type="text"  class="form-control col-md-8 mb-2 mr-sm-2 mb-sm-0" id="input-add-task" placeholder="Add new Task">
-
-
-
+                <input type="text" class="form-control col-md-8 mb-2 mr-sm-2 mb-sm-0" id="input-add-task"
+                       placeholder="Add new Task">
 
 
                 <button type="submit" class="btn btn-primary" id="add-task">Add</button>
 
+                <div id="dialog" title="Basic dialog" style="display: none;">
+                    <p>This is the default dialog which is useful for displaying information. The dialog window can be
+                        moved, resized and closed with the 'x' icon.</p>
+                </div>
                 <p class="hint">Hint: Click <strong>OR</strong> Drag and drop to move task between lists</p>
             </form>
 
             <hr>
-
-
-
 
 
         </div>
@@ -123,13 +126,11 @@
             <ul class="list-group" id="completed-tasks" style="background-color:transparent; height: 10rem">
 
 
-
             </ul>
         </div>
 
 
     </div>
-
 
 
 </main>
@@ -140,8 +141,12 @@
 </footer>
 
 <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
