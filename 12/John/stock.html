@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stock Simulator</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <!--CHARTJS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse; /*ALERT*/
+
+        }
+
+        thead {
+            text-align: center;
+            background-color: gray;
+
+        }
+
+        caption {
+            caption-side: top; /*ALERT*/
+            background-color: black;
+            color: white;
+            padding: 1rem;
+            font-style: italic;
+            text-align: center;
+        }
+
+        td {
+            width: 33.33%;
+            padding: .75rem;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+
+    </style>
+
+    <script>
+        $(function () {
+
+            let priceData = [
+                ["23:42:40", "00:00", "buy", "€6,328.0", "100"],
+                ["23:42:40", "00:00", "sell", "€6,328.0", "250"],
+                ["23:42:40", "00:00", "buy", "€6,32228.0", "120"],
+                ["23:54:40", "00:00", "sell", "€612312,328.0", "300"],
+                ["23:22:40", "00:00", "buy", "€6,121328.0", "120"],
+                ["23:11:40", "00:00", "sell", "€6,23.0", "180"],
+            ];
+
+            let insertedValues = [];
+
+            /* TABLE POPULATION =========================================== */
+
+
+            /* Insert Data =========================================== */
+            function insertOrder(row) {
+
+                //first, add row
+                $("tbody").append('<tr></tr>');
+
+                //select inserted row
+                let insertedRow = $("tbody tr").eq(row);
+
+                for (let data of priceData[row]) {
+                    insertedRow.append(`<td>${data}</td>`);
+
+                }
+                addData(myChart,'Prices',priceData[row][4]);
+                insertedValues.push(`${priceData[row][4]}`);
+
+            }
+
+
+            let i = 0;
+            let dataInterval = setInterval(function () {
+
+                if (typeof priceData[i] !== 'undefined') {
+                    insertOrder(i);
+                    i++;
+
+                    console.log('updating datasets');
+
+
+
+
+                } else {
+                    clearInterval(dataInterval);
+                }
+
+
+            }, 1000);
+
+
+            function getPricesDataset() {
+
+                let prices = [];
+
+                for (let data of insertedValues) {
+                    prices.push(data);
+                }
+
+                return prices;
+            }
+
+
+            function addData(chart, label, data) {
+                chart.data.labels.push(label);
+                chart.data.datasets.forEach((dataset) => {
+                    dataset.data.push(data);
+                });
+                chart.update();
+            }
+
+            let ctx = document.getElementById("myChart").getContext('2d');
+            let myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["Price"],
+                    datasets: [{
+                        label: 'Prices',
+                        data: getPricesDataset()
+                    } ]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+
+
+
+
+
+
+
+
+
+        });
+    </script>
+
+
+</head>
+<body>
+
+
+<canvas id="myChart"></canvas>
+<table>
+
+
+    <caption>Stock Trading</caption>
+
+    <thead>
+    <tr>
+        <th>Time</th>
+        <th>Order</th>
+        <th>Price</th>
+        <th>Volume</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <!--<tr>-->
+    <!--<td>Data1</td>-->
+    <!--<td>Data2</td>-->
+    <!--<td>Data3</td>-->
+    <!--<td>Data3</td>-->
+    <!--</tr>-->
+
+    </tbody>
+
+
+</table>
+
+</body>
+</html>
